@@ -1,0 +1,11 @@
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\bin\Debug\data\dictionary.txt
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\bin\Debug\CryptoSolver.exe.config
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\bin\Debug\CryptoSolver.exe
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\bin\Debug\CryptoSolver.pdb
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\KSU.CIS300.CryptoSolver.csprojAssemblyReference.cache
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\CryptoSolver.Properties.Resources.resources
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\CryptoSolver.UserInterface.resources
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\KSU.CIS300.CryptoSolver.csproj.GenerateResource.cache
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\CryptoSolver.exe
+C:\Users\Amcke\Source\Repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\CryptoSolver.pdb
+C:\Users\Amcke\source\repos\homework-4-assignment-AmckernanKSU2\CryptoSolver\obj\Debug\KSU.CIS300.CryptoSolver.csproj.CoreCompileInputs.cache
