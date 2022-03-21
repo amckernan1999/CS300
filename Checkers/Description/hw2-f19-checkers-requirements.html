@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>hw2-f19-checkers-requirements</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:first-child { margin-top: -20px; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  @page { margin: 20mm 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
+html { font-size: 16px; }
+body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+#write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
+#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
+a { color: rgb(65, 131, 196); }
+h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
+h1 tt, h1 code { font-size: inherit; }
+h2 tt, h2 code { font-size: inherit; }
+h3 tt, h3 code { font-size: inherit; }
+h4 tt, h4 code { font-size: inherit; }
+h5 tt, h5 code { font-size: inherit; }
+h6 tt, h6 code { font-size: inherit; }
+h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
+p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
+li > ol, li > ul { margin: 0px; }
+hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
+li p.first { display: inline-block; }
+ul, ol { padding-left: 30px; }
+ul:first-child, ol:first-child { margin-top: 0px; }
+ul:last-child, ol:last-child { margin-bottom: 0px; }
+blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote blockquote { padding-right: 0px; }
+table { padding: 0px; word-break: initial; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th:first-child, table tr td:first-child { margin-top: 0px; }
+table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
+.CodeMirror-lines { padding-left: 4px; }
+.code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
+.md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
+code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
+.md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
+.md-task-list-item > input { margin-left: -1.3em; }
+@media print {
+  html { font-size: 13px; }
+  table, pre { break-inside: avoid; }
+  pre { word-wrap: break-word; }
+}
+.md-fences { background-color: rgb(248, 248, 248); }
+#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
+.mathjax-block > .code-tooltip { bottom: 0.375rem; }
+.md-mathjax-midline { background: rgb(250, 250, 250); }
+#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
+#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
+.md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
+.md-tag { color: rgb(167, 167, 167); opacity: 1; }
+.md-toc { margin-top: 20px; padding-bottom: 20px; }
+.sidebar-tabs { border-bottom: none; }
+#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
+#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
+.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
+header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
+.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
+.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
+.md-lang { color: rgb(180, 101, 77); }
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
+#md-notification .btn { border: 0px; }
+.dropdown-menu .divider { border-color: rgb(229, 229, 229); }
+
+
+
+
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h2><a name='header-n0' class='md-header-anchor '></a>Functional Requirements</h2><p>For this assignment, you will be writing a program that can be used  to play checkers (aka English Draughts).  Checkers is a simple game  played on a 8x8 checkered board (32 dark squares and 32 light squares).   There are two colors of pieces, red and black, each being played by one  human player.  Each player starts with 12 pieces. The black piece  player goes first.  Rules of moving, jumping (capturing), and board  layout can be found at <a href='https://www.itsyourturn.com/t_helptopic2030.html'>this link</a> (ignore instructions specific to the site).  The objective of the game is to capture all of the opposing pieces.  Do not worry about ties or draws.</p><h2><a name='header-n3' class='md-header-anchor '></a>Starting the Assignment</h2><p>Create a GitHub repository using <a href='https://classroom.github.com/a/gI9-0iWV'><strong>this URL</strong></a> and clone it to your local machine. This solution contains a new Windows Forms Application in which <strong>Form1.cs</strong> has been renamed <strong>UserInterface.cs</strong>.  The pictures used for the checker pieces are in the included <strong>pics</strong> folder.  An obfuscated executable is included a zip folder.</p><h2><a name='header-n5' class='md-header-anchor '></a>User Interface</h2><p>The base interface is very simple. It should be impossible to maximize or otherwise resize this window (set the Form&#39;s <strong>MaximizeBox</strong> property to false and its <strong>FormBorderStyle</strong> property to <strong>Fixed3D</strong> to accomplish this). It includes a menu strip that has  File-&gt;New Game as menu items. If a user clicks the &quot;New Game&quot; option,  the existing board will be cleared and replaced with a fresh game.   Under the menu strip, a <strong>FlowLayoutPanel</strong> should be  added.  The program will place all of the board squares, with the  pieces, into this panel.  The user will be able to interact with the  board by clicking on a piece then the board square they wish to move it  to. A piece is highlighted once it is selected.  The user can then click  on another square to move the piece or capture an enemy piece.  If the  square the user clicked to move to is not a valid move, a <strong>MessageBox</strong> appears indicating that it is an invalid move.  At the bottom, add a <strong>StatusStrip</strong>  that has the <strong>RightToLeft</strong> property set to Yes.  It should also contain  one label.  This will indicate whose turn it is (ex: &quot;Red&#39;s Turn&quot;).   Once all of the pieces of either side have been captured, the game is  over and a <strong>MessageBox</strong> appears indicating the winner.  The rest of the interface is generated by your program.</p><p><img src='images/hw2-ui.png' alt='checker UI' referrerPolicy='no-referrer' /></p><h2><a name='header-n8' class='md-header-anchor '></a>Software Architecture</h2><p><img src='images/hw2-uml.png' alt='hw2-uml' referrerPolicy='no-referrer' /></p><p>The UserInterface class is primarily used for drawing/updating the UI  for when the game is created and when a piece is interacted with.  All  of the actual logic for checkers is contained inside the Game class.   Each square on the checker board will be represented using  BoardSquare&#39;s.  This class is also indicates whether or not a square  contains an actual piece.  The enum SquareColor is used to indicate this  information.  </p><h3><a name='header-n11' class='md-header-anchor '></a>Representing the Game Board</h3><p>For this assignment, you will be representing the checkers board using a dictionary of linked lists.  For the dictionary, the <strong>Key</strong> will be the row of the board.  The <strong>Value</strong> will be the first cell of a linked list containing each <strong>BoardSquare</strong>.   This cell should be the left most square (i.e. column) in that row.    This structure can be seen when the board is numbered like the image  below.  Each row has an entry in the dictionary, where the key of each  row is a number 1-8.  Each value in the dictionary is a linked list of  squares, also labeled 1-8, for a given row. The text in each of the below squares are the row-column for each board square.  These are given in this image to help with debugging.  To add this, when drawing the board, simply set the <strong>Text</strong> property.</p><p><img src='images/hw2-numberedSquares.png' alt='hw2-numberedSquares' referrerPolicy='no-referrer' /></p><h2><a name='header-n14' class='md-header-anchor '></a>Coding Requirements</h2><p>Specific requirements for the above classes are given in what follows. Feel free to add more <strong>private</strong> methods if you feel it improves the code.  Note that some methods below are public for testing purposes.</p><h3><a name='header-n16' class='md-header-anchor '></a>The LinkedListCell&lt; T &gt; Class</h3><p>This class is given.</p><h3><a name='header-n18' class='md-header-anchor '></a>BoardSquare.cs</h3><p>The class contains the following <strong>properties</strong>:</p><ul><li><p><strong>public bool King</strong> </p><ul><li>Indicates if this square contains a piece that has been promoted to a King. It contains a default getter/setter and should be initialized to <strong>False</strong>.</li></ul></li><li><p><strong>public SquareColor Color</strong> </p><ul><li>Indicates if this square contains a colored piece or if it has none. It contains a default getter/setter.</li></ul></li><li><p><strong>public bool Selected</strong> </p><ul><li>Indicates if this square is selected. It contains a default getter/setter and should be initialized to <strong>False</strong>.</li></ul></li><li><p><strong>public int Row</strong> </p><ul><li>The row location on the board. It contains a default getter but no setter.</li></ul></li><li><p><strong>public int Column</strong> </p><ul><li>The column location on the board. It contains a default getter but no setter.</li></ul></li></ul><p>The class also contains a public constructor that takes in two  integers as parameters.  These represent the row and the column of the <strong>BoardSquare</strong> class.  The <em>Row</em> and Column variables defined above should be set to these parameters.</p><p>In addition to the <strong>BoardSquare</strong> class, the BoardSquare.cs file should contain an enumerator defined as:</p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="c#"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c#"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">enum</span> <span class="cm-variable">SquareColor</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">Red</span>, &nbsp; &nbsp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">Black</span>, &nbsp; &nbsp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">None</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="height: 138px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>We have used enumerators like this before, like with <strong><em>DialogResult</em></strong> when using open/save dialog boxes for files.  Red, Black, and None can be accessed like so: <strong>*SquareColor</strong>.Black<em>.  These are used to indicate the color of a piece.  <strong>*SquareColor</strong>.None</em> is used if there is no piece on a square.</p><h3><a name='header-n50' class='md-header-anchor '></a><strong>The Game Class</strong></h3><p>The <strong>Game</strong> Class holds most of the logic for checkers. This class contains the following <strong>fields</strong>:</p><ul><li><p><strong>private Dictionary&lt;int, LinkedListCell&lt; BoardSquare &gt;&gt; _board</strong></p><ul><li>The dictionary that stores the representation of the checker board.  This uses the generic dictionary type contained in <em>System.Collections.Generic</em>, and should be initialized to <strong>null</strong>.</li></ul></li></ul><p>This class contains the following <strong>properties</strong>:</p><ul><li><p>public int RedCount</p><ul><li>Keeps track of the number of red pieces on the board.  It should have a public getter, but private setter.</li></ul></li><li><p>public int BlackCount</p><ul><li>Keeps track of the number of black pieces on the board.  It should have a public getter, but private setter.</li></ul></li><li><p>public BoardSquare SelectedPiece</p><ul><li>Property to keep track of which piece is currently selected.  This is the piece the user is intending to move. It should have a default getter and setter.</li></ul></li><li><p>public SquareColor Turn</p><ul><li>Property to keep track of whose turn it is. It should have a default getter and setter.</li></ul></li></ul><p>This class contains the following <strong>methods</strong>:</p><ul><li><p><strong>private void CreateBoard()</strong></p><ul><li>Sets the game board by populating the <strong>_board</strong> dictionary (don&#39;t forget to initialize it first!).  Each key of the dictionary is an integer representing a row on the board (1-8) and the value is a <strong>LinkedListCell&lt; BoardSquare &gt;</strong> which is the first <strong>BoardSquare</strong> in  the corresponding row.  Thus, each row of the checker board is  represented as a linked list.  Each cell of the linked list should  contain a new <strong>BoardSquare</strong> set according to the rules of checkers described previously.  In creating the square, be sure to set the <strong>Color</strong>  to indicate any piece, or the lack thereof, that should be placed  there. You should build the board from right to left (<strong>i.e. backwards</strong>), bottom to top.</li><li>You can build the board using two nested for-loops; in the inner loop, you will be creating a new BoardSquare using the indices  of the loops as parameters to its constructor. You can also use the indices (along with some mod operations) in deciding which BoardSquare should be Red, Black, or None. Make sure to adjust the two count properties above accordingly. </li></ul></li><li><p><strong>public Game()</strong></p><ul><li>The public constructor that calls <strong>CreateBoard</strong> and sets the <strong>Turn</strong> to black.</li></ul></li><li><p><strong>public LinkedListCell&lt; BoardSquare &gt; GetRow(int row)</strong></p><ul><li>Returns a LinkedListCell that references the first BoardSquare of the given row if it exists.  Returns null otherwise.</li></ul></li><li><p><strong>private BoardSquare SelectSquare(int row, int col)</strong></p><ul><li>Finds and returns the <strong>BoardSquare</strong> that corresponds  to the given row and column.  If the found square has the same color as  the current Turn, the square should be stored in <strong>SelectedPiece.</strong>  Be sure to set the <strong>Selected</strong> property of the <strong>BoardSquare</strong> if this is the case. (<em>Hint: You will need to search the linked list of the given row to find the cell of the corresponding column.</em>)</li></ul></li><li><p><strong>private bool CheckCapture(LinkedListCell&lt; BoardSquare &gt;  cell, int targetCol, SquareColor targetColor, out BoardSquare result)</strong></p><ul><li>This method returns whether the row of cells given by <strong>cell</strong> contains a piece of the given <strong>targetColor</strong> in the given column (i.e., <strong>targetColumn</strong>). The <strong>out</strong> parameter should be set to the square in the given column. </li></ul></li><li><p><strong>private bool CheckCapture(LinkedListCell&lt; BoardSquare &gt; cell, int targetCol, SquareColor targetColor)</strong></p><ul><li>This function is the same as the CheckCapture method above, but does  not use an out parameter.  This CheckCapture method should only be  called by the <strong>CheckJump</strong> function below.</li></ul></li><li><p><strong>private bool CheckJump(int enemyRow, int targetRow, int enemyCol, int targetCol, BoardSquare current, SquareColor enemy)</strong></p><ul><li>This method looks to see only if a jump is possible, given the location of the enemy (<em>enemyRow</em>, <em>enemyCol</em>), the location where the piece will jump to (<em>targetRow</em>, <em>targetCol</em>), and where the piece is at now (<em>current</em>).  </li><li>The enemy AND target should be contained inside the board, if not, return false.  That
+way, we can avoid getting a <em>KeyNotFoundException</em> when using  the dictionary’s indexer to obtain the necessary cells for the next step </li><li>Use the <strong>CheckCapture</strong>  method described previously to see if the target and enemy  given make a valid jump. (<em>Note that the target square is empty, hence that call to CheckCapture will have a SquareColor of None.</em>)  If so, return true.  Otherwise, return false. </li></ul></li><li><p><strong>private bool CheckAnyJump(BoardSquare current, SquareColor enemy)</strong></p><ul><li>This method uses the <strong>CheckJump</strong> to see if <em>any</em> jump is possible from the current square given the enemy color.  This should return true as soon as it finds a possible jump. Note that a King piece could potentially jump in four different directions, opposed to a normal piece which can only jump in two directions.</li></ul></li><li><p><strong>public bool GetJumpSquare(BoardSquare target, SquareColor enemy, out int row, out int col)</strong></p><ul><li>This method should first calculate where the enemy piece to jump <em>should</em>  be located (the row and column) on the board. (<em>Remember the King is a special case!</em>)   </li><li>You should use the target <strong>BoardSquare</strong>  location to assist in figuring out which direction the user is trying  to jump.  </li><li>Be sure to enforce the rules on which directions the pieces  can move.  If they are trying to jump in an invalid direction (or too far), the <strong>out</strong> parameters should be set to -1 and then return false.  </li><li>Otherwise, set the <strong>out</strong> parameters to the location and return true.</li></ul></li><li><p><strong>private bool Jump(BoardSquare current, BoardSquare target, SquareColor enemy, out bool jumpMore)</strong></p><ul><li>This function makes the piece jump if the given target is a valid square to jump to.  Note that you may <u>not</u> assume that the target square is within the bounds of the board.  In that case, the method should set the out parameter to false and return false.</li><li>It will then need to obtain the enemy’s row and column using the <strong>GetJumpSquare</strong> method, but if that method returns false, then we also need to set the out parameter to false and return false.  </li><li>Then it should use the <strong>CheckCapture</strong> method described above (<em>the one with the <strong>out</strong> parameter)</em>  to check the enemy coordinate (retrieved from the <strong>GetJumpSquare</strong> method in the previous step) and target coordinate squares.  The enemy  square should have an opponent piece and the target coordinate should  contain no pieces.  If the capture is valid, decrease the corresponding  number of pieces from the properties described above (<em>RedCount</em> or BlackCount).  The enemy <strong>BoardSquare</strong> should be cleared by setting the color to <em>SquareColor.None</em>.  After the successful jump is made, the <strong>jumpMore</strong> out parameter should be set to the result of the <strong>CheckAnyJump</strong>  function.  This should check if the new location of the piece can has  any more valid jumps.  Return true to indicate the jump was made.</li><li>If either the enemy coordinate or the target coordinate given to this function are invalid, <strong>jumpMore</strong> should be set to <strong>false</strong> and false should be returned.</li></ul></li><li><p><strong>public bool CanMove(bool forceJump,BoardSquare targetSquare, SquareColor enemy, out bool jumpMore)</strong></p><ul><li>Based on the given target, enemy, and whether or not to force a jump, this method checks to see if a move can be made.  If a jump is being forced, the <strong>Jump</strong> method should be called.  If a jump is made return true; otherwise, set the <em>out</em> parameter to false.  Then check for normal moves based off of the target square and the selected piece using the game rules.  If a move is possible, return true (do not make the move here).</li></ul></li><li><p><strong>public bool MoveSelectedPiece(int targetRow, int targetCol)</strong></p><ul><li>This function attempts to make a legal move in the target row/column and returns true if a move is made.  </li><li>First, the target <strong>BoardSquare</strong> should be selected using <strong>SelectSquare</strong>.  If the square is null or <strong>SelectedPiece</strong> is null, there is no valid move, so the method should return false.  Otherwise, if the square returned by <strong>SelectSquare</strong> is equal to <strong>SelectedPiece,</strong> then  a square with a piece on it was selected (return true without moving a  piece).  </li><li>If the square is empty (meaning its color is None), a piece was selected that was out  of turn (return false).  </li><li>Otherwise, the user is trying to move a piece.  You need to first check if there is any jump available using the <strong>CheckAnyJump</strong>  function described above.  If there isn&#39;t a possible jump from the  currently selected piece,  you need to scan the entire board to see if  there is a jump available for the current player.  If there is,  the  player is trying to make an invalid move.  You should return false to  force the player to select a new piece that has a valid move.  If the <strong>SelectedPiece</strong> piece can move to the target square (i.e., the square returned by <strong>SelectSquare</strong> earlier in this method) or the <strong>SelectedPiece</strong> piece can jump over an enemy (<em>use the <strong>CanMove</strong> method here!</em>), make the move by updating the corresponding <strong>BoardSquares</strong>.  The piece should be promoted to a king as outlined in the game rules.   The turn should be changed to the next color if a move was made and if  their are no more jumps (the out parameter from the <strong>Jump</strong> method, false if <strong>Jump</strong> was not called). If a valid move was not made, false should be returned.</li></ul></li></ul><h3><a name='header-n166' class='md-header-anchor '></a>The UserInterface Class</h3><p>The UserInterface class is responsible for drawing and updating the checker board. This class contains the following <strong>fields</strong>:</p><ul><li><p><strong>private Game _game</strong></p><ul><li>Stores the current game of checkers. This field should initially be null.</li></ul></li><li><p><strong>private Image _red</strong></p><ul><li>Loaded image from &quot;pics\red.png&quot;</li><li>You can open images using the FromFile function like so: Image.FromFile(@&quot;pics\red.png&quot;) </li></ul></li><li><p><strong>private Image _redKing</strong></p><ul><li>Loaded image from &quot;pics\red_king.png&quot;</li></ul></li><li><p><strong>private Image _black</strong></p><ul><li>Loaded image from &quot;pics\black.png&quot;</li></ul></li><li><p><strong>private Image _blackKing</strong></p><ul><li>Loaded image from &quot;pics\black_king.png&quot;</li></ul></li></ul><p>This class contains the following methods:</p><ul><li><p><strong>private void DrawBoard()</strong></p><ul><li><p>This functions draws the checker board in the GUI.  </p></li><li><p>The <a href='https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/flowlayoutpanel-control-overview'><strong>FlowLayoutPanel</strong></a> that contains the board labels should be cleared first of any Controls.  The panel Width should be set to <strong>60 * 8</strong>.  </p></li><li><p>The <strong>Height</strong> should be <strong>30</strong> more than the Width.  The width and height is set dynamically to make the GUI look clean on 4K displays (the VS Designer window is not that great at this).  </p></li><li><p>Then,  the <strong>FlowLayoutPanel</strong> should be loaded with new Labels that represent each square on the game board.  Do this by looping through each LinkedListCell in each row of the game board.  You can get each row by calling the <strong>GetRow</strong> method from the <strong>GameClass</strong>.  Once created, the <strong>Label</strong> should be added to the panel.  That can be done by adding the label to the <a href='https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.controls?view=netframework-4.7.2#System_Windows_Forms_Control_Controls'>Controls</a> property of the layout panel.  The Labels will have the following properties set: </p><ul><li><p>Width: 60</p></li><li><p>Height: 60</p></li><li><p>BackColor: <em>Color.White</em> if the sum of Column and Row is even, <em>Color.Gray</em> otherwise (mod operations are your friend here!).</p></li><li><p>Margin: Left and Right margin should be 0.  Note that this can be done by using a <a href='https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.padding?view=netframework-4.7.2'><em>Padding</em> struct (Links to an external site.)</a>  that has Left and Right set to 0, then setting the Margin property to  the padding you just created.  This is because the Margin properties  (Left, Right, Up, and Down) cannot be modified directly.</p></li><li><p>Image: Set to the corresponding image stored in the variables described above base off the color of the <strong>BoardSquare.</strong> </p></li><li><p>Name: &quot;row,column&quot; (Used if you want extra debugging help)</p></li><li><p>Click: Dynamically bind an event handler described below.  This can be done like so: </p><ul><li>squareLabel.Click += new EventHandler(BoardSquare_Click);</li></ul></li></ul></li></ul></li><li><p><strong>public UserInterface()</strong></p><ul><li>This is the public constructor that is auto generated.  Modify it so  it will create a new game, update whose turn it is in the status bar,  and draw the game board.  These modifications should go after the <strong>InitializeComponent</strong> method call.</li></ul></li><li><p><strong>private void RedrawBoard()</strong></p><ul><li>This function should iterate over each row of the board and update each <strong>Label</strong> that represents a board square.  To do this, use the <strong>BoardSquare</strong> data contained in each <strong>LinkedListCell</strong> to update the image(red piece, black piece, king red piece, or king black piece) of the <strong>Label</strong>.  If the <strong>BoardSquare</strong> is selected, the <strong>BackColor</strong> of the <strong>Label</strong> should be updated to <em>Color.Aqua</em>, otherwise, it should be returned to is original color.  It should also refresh whose turn it is by updating the status bar.</li></ul></li></ul><p>This class contains the following <strong>event handlers</strong>:</p><ul><li><p>The new game menu item should have a <strong>click event handler</strong> that initializes a new game.  </p></li><li><p>Each <strong>Label</strong> that represents a square on the game board will have a click event handler called <strong>BoardSquare_Click</strong> that is added dynamically when the board is drawn. This method should get the <strong>Label</strong> that was clicked (done by casting the sender as a Label.  </p><ul><li>Using the <strong>Label</strong> name, which should be &quot;row,column&quot;, call the <strong>MakeMove</strong> method that is described in the <strong>Game</strong> class.  If a move is made, the board should be redrawn, and a win should be checked (make use of the properties of the <strong>_game</strong> object).  If the game has been won, the winner should be indicated using a <strong>MessageBox</strong>.  If a move was not made, the user should be informed that they made an invalid move.</li></ul></li></ul><h2><a name='header-n244' class='md-header-anchor '></a>Testing Your Program</h2><p>Be sure to test win conditions for both sides, and each kind of  move/jump.  To assist in testing your program, it can be helpful to add  text to your board squares to indicate the row and column.  Unit tests are also provided to test PART of the features.  These unit tests are not exhaustive, meaning they do not test every feature/requirement.  The <strong>CheckAnyJump</strong>, <strong>Jump</strong>, and <strong>MoveSelectedPiece</strong> are not unit tested at all since they highly depend on the state of the board through interactions with the GUI.  The unit tests are provided to assist testing helper methods of the more complex methods (like <strong>Jump</strong> and <strong>MoveSelectedPiece</strong>).</p><h2><a name='header-n246' class='md-header-anchor '></a>Performance</h2><p>Each move made in the game should be instant and have relatively no  delay.  There will be a cascade effect when creating a new game.</p><h2><a name='header-n248' class='md-header-anchor '></a>Submitting Your Assignment</h2><p>Be sure to <strong>refresh</strong> your Team Explorer, <strong>commit</strong> all your changes, then <strong>push</strong> your commits to your GitHub repository. Then submit the <em>entire URL</em> of the commit that you want graded. There is no need to submit a comment, as you will not have a completion code.</p><p><strong>Important:</strong> If the URL you submit does not contain the 40-hex-digit fingerprint of the commit you want graded, <strong>you will receive a 0</strong>,  as this fingerprint is the only way we can verify that you completed  your code prior to submitting your assignment. We will only grade the  source code that is included in the commit that you submit. Therefore,  be sure that the commit on GitHub contains all six &quot;.cs&quot; files, and that  they are the version you want graded. This is especially important if  you had any trouble committing or pushing your code.</p></div>
+</body>
+</html>
