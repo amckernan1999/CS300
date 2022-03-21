@@ -1,0 +1,9 @@
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\obj\Debug\MagicSquares.Properties.Resources.resources
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\obj\Debug\MagicSquares.UserInterface.resources
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\obj\Debug\MagicSquares.csproj.GenerateResource.cache
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\bin\Debug\MagicSquares.exe.config
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\bin\Debug\MagicSquares.exe
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\bin\Debug\MagicSquares.pdb
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\obj\Debug\MagicSquares.exe
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\obj\Debug\MagicSquares.pdb
+C:\Users\Amcke\Source\Repos\homework-1-assignment-amckernan1999\MagicSquares\obj\Debug\MagicSquares.csprojAssemblyReference.cache
